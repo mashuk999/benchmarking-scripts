@@ -4,7 +4,6 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 from scipy.io.wavfile import write as write_wav
 
-from IPython.display import Audio
 import nltk  # we'll use this to split into sentences
 nltk.download('punkt')
 import numpy as np
