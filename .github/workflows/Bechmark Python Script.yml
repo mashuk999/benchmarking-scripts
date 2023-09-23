@@ -31,4 +31,9 @@ jobs:
 
     - name: Running the script
       run: |
-        ls -alrth
+        python tts_bark.py
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: bark_generation.wav
