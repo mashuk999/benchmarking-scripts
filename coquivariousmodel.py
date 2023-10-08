@@ -28,7 +28,7 @@ fileName = "output.wav"
 
 tts = TTS(model_name=currentModel, progress_bar=True).to(device)
 
-if len(tts.speakers) > 0:
+if len(tts.speakers) != None and len(tts.speakers) > 0:
     tts.tts_to_file(text="Explore innovative solutions, analyze their BENEFITS and COSTS, and RANK them.", speaker=tts.speakers[0] ,language="en", file_path=fileName)
 else:
     tts.tts_to_file(text="Explore innovative solutions, analyze their BENEFITS and COSTS, and RANK them.",language="en", file_path=fileName)
