@@ -13,8 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
+  tts_models_multilingual_multi-dataset_your_tts:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,9 +30,1617 @@ jobs:
 
     - name: Running the script
       run: |
-        python tts_bark.py
+        python coquivariousmodel.py --modelname "tts_models/multilingual/multi-dataset/your_tts"
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
       with:
         name: Audio
-        path: bark_generation.wav
+        path: output.wav
+
+  tts_models_multilingual_multi-dataset_bark:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/multilingual/multi-dataset/bark"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_bg_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/bg/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_cs_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/cs/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_da_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/da/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_et_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/et/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_ga_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/ga/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ek1_tacotron2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ek1/tacotron2"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_tacotron2-DDC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/tacotron2-DDC"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_tacotron2-DDC_ph:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/tacotron2-DDC_ph"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_glow-tts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/glow-tts"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_speedy-speech:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/speedy-speech"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_tacotron2-DCA:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/tacotron2-DCA"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_vits--neon:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/vits--neon"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_fast_pitch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/fast_pitch"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_overflow:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/overflow"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_ljspeech_neural_hmm:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/ljspeech/neural_hmm"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_vctk_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/vctk/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_vctk_fast_pitch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/vctk/fast_pitch"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_sam_tacotron-DDC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/sam/tacotron-DDC"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_blizzard2013_capacitron-t2-c50:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/blizzard2013/capacitron-t2-c50"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_blizzard2013_capacitron-t2-c150_v2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/blizzard2013/capacitron-t2-c150_v2"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_multi-dataset_tortoise-v2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/multi-dataset/tortoise-v2"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_en_jenny_jenny:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/en/jenny/jenny"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_es_mai_tacotron2-DDC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/es/mai/tacotron2-DDC"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_es_css10_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/es/css10/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_fr_mai_tacotron2-DDC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/fr/mai/tacotron2-DDC"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_fr_css10_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/fr/css10/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_uk_mai_glow-tts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/uk/mai/glow-tts"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_uk_mai_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/uk/mai/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_zh-CN_baker_tacotron2-DDC-GST:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/zh-CN/baker/tacotron2-DDC-GST"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_nl_mai_tacotron2-DDC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/nl/mai/tacotron2-DDC"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_nl_css10_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/nl/css10/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_de_thorsten_tacotron2-DCA:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/de/thorsten/tacotron2-DCA"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_de_thorsten_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/de/thorsten/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_de_thorsten_tacotron2-DDC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/de/thorsten/tacotron2-DDC"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_de_css10_vits-neon:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/de/css10/vits-neon"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_ja_kokoro_tacotron2-DDC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/ja/kokoro/tacotron2-DDC"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_tr_common-voice_glow-tts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/tr/common-voice/glow-tts"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_it_mai_female_glow-tts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/it/mai_female/glow-tts"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_it_mai_female_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/it/mai_female/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_it_mai_male_glow-tts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/it/mai_male/glow-tts"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_it_mai_male_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/it/mai_male/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_ewe_openbible_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/ewe/openbible/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_hau_openbible_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/hau/openbible/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_lin_openbible_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/lin/openbible/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_tw_akuapem_openbible_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/tw_akuapem/openbible/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_tw_asante_openbible_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/tw_asante/openbible/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_yor_openbible_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/yor/openbible/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_hu_css10_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/hu/css10/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_el_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/el/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_fi_css10_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/fi/css10/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_hr_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/hr/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_lt_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/lt/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_lv_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/lv/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_mt_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/mt/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_pl_mai_female_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/pl/mai_female/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_pt_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/pt/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_ro_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/ro/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_sk_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/sk/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_sl_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/sl/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_sv_cv_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/sv/cv/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_ca_custom_vits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/ca/custom/vits"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_fa_custom_glow-tts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/fa/custom/glow-tts"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_bn_custom_vits-male:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/bn/custom/vits-male"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_bn_custom_vits-female:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/bn/custom/vits-female"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
+
+  tts_models_be_common-voice_glow-tts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/be/common-voice/glow-tts"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
