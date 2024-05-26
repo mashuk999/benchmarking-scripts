@@ -26,6 +26,8 @@ torch.cuda.empty_cache()
 
 fileName = "output.wav"
 
+os.environ["COQUI_TOS_AGREED"] = "1"
+
 tts = TTS(model_name=currentModel, progress_bar=True).to(device)
 
 texTTS = """
