@@ -28,7 +28,12 @@ fileName = "output.wav"
 
 tts = TTS(model_name=currentModel, progress_bar=True).to(device)
 
-if tts.speakers != None and len(tts.speakers) != None and len(tts.speakers) > 0:
-    tts.tts_to_file(text="Explore innovative solutions, analyze their BENEFITS and COSTS, and RANK them.", speaker=tts.speakers[0], file_path=fileName)
-else:
-    tts.tts_to_file(text="Explore innovative solutions, analyze their BENEFITS and COSTS, and RANK them.", file_path=fileName)
+texTTS = """
+स्टॉक मार्केट के उतार-चढ़ाव बाजार के स्वभाव का हिस्सा हैं और निवेशकों के लिए सावधानी बरतना आवश्यक होता है। निवेशकों को निवेश करने से पहले बाजार के नियमों और नियमावलियों को समझना चाहिए। विभिन्न कंपनियों के संदर्भ में अच्छे अनुसंधान के साथ, विशेषज्ञों की सलाह लेना भी महत्वपूर्ण है। स्टॉक मार्केट में निवेश करते समय ध्यान देना चाहिए कि निवेश के लिए उपलब्ध संसाधनों का प्रबंधन कैसे किया जाए। अंततः, निवेशकों को धीरे-धीरे बाजार के कारोबार की प्रक्रिया को समझते हुए अपने निवेशों को बढ़ाना चाहिए।
+"""
+
+print(os.system('pwd'))
+
+print(os.system('ls -alrth'))
+
+tts.tts_to_file(text=texTTS, file_path=fileName)
