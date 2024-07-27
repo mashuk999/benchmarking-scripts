@@ -3,7 +3,7 @@ import time
 
 # Replace 'your-api-key-here' with your actual OpenAI API key
 openai_api_key = "EMPTY"
-openai_api_base = "http://localhost:8080/v1"
+openai_api_base = "http://localhost:8000/v1"
 
 print('Sleeping for 500s')
 time.sleep(500)
