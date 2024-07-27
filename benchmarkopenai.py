@@ -5,8 +5,8 @@ import time
 openai_api_key = "EMPTY"
 openai_api_base = "http://localhost:8000/v1"
 
-print('Sleeping for 500s')
-time.sleep(500)
+print('Sleeping for 200s')
+time.sleep(200)
 print('Sleep Ended')
 
 client = OpenAI(
@@ -62,13 +62,23 @@ Todays market gains reflect a mix of strong corporate earnings and favorable eco
 '''
 
 prompt = (
-            "Write a youtube video script using below article\n\n"
+            "Write a youtube short script using below article\n\n"
             f"{text}\n\n"
         )
 
 
 response = chat_with_gpt(prompt)
 
+print('RESPONSE STARTED HERE')
+print(response)
+print('RESPONSE ENDED HERE')
+
+prompt = (
+            "Rate the below youtube short script between 0 and 10 where 10 is rated very good. Reply in a json response {rating: YOURRATING}\n\n"
+            f"{response}\n\n"
+        )
+response = chat_with_gpt(prompt)
+print('=======')
 print('RESPONSE STARTED HERE')
 print(response)
 print('RESPONSE ENDED HERE')
