@@ -1,0 +1,32 @@
+name: xttsBenchmarking
+
+on:
+  workflow_dispatch: # This allows the workflow to be triggered manually
+
+permissions:
+  contents: read
+
+jobs:
+  xtts_v2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Running the script
+      run: |
+        python coquivariousmodel.py --modelname "tts_models/multilingual/multi-dataset/xtts_v2"
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Audio
+        path: output.wav
