@@ -34,35 +34,37 @@ def chat_with_gpt(prompt):
         return f"An error occurred: {e}"
 
 text = '''
-July 28, 2024 – New York — Wall Street saw a significant rally today, with major indices posting solid gains following a slew of stronger-than-expected earnings reports and positive economic data.
+**Bollywood Buzz: Exciting Developments and Upcoming Releases**
 
-The S&P 500 jumped 1.2%, the Dow Jones Industrial Average climbed 0.9%, and the Nasdaq Composite soared 1.5%, reflecting widespread investor enthusiasm. The rally was driven by impressive quarterly results from leading companies and encouraging signs from the economy.
+Bollywood continues to captivate audiences worldwide with its blend of drama, music, and star power. Recent weeks have been particularly eventful, with several exciting developments making headlines.
 
-Key Earnings Reports
+**1. New Film Announcements:**
 
-Tech giants led the charge, with Apple Inc. and Microsoft Corp. both exceeding profit forecasts. Apples robust sales of its latest iPhone and Microsofts strong performance in its cloud division fueled optimism. In the retail sector, Amazon.com Inc. also delivered strong results, with better-than-expected earnings bolstered by successful promotional events and market expansion.
+The much-anticipated collaboration between celebrated director Rajkumar Hirani and superstar Shah Rukh Khan has been officially confirmed. The film, tentatively titled *Dard-e-Dil*, is expected to be a heartfelt drama with Hirani's signature blend of humor and emotion. Fans are eagerly awaiting more details on the plot and the rest of the cast.
 
-Economic Data Boost
+**2. Star Weddings and Celebrations:**
 
-Today's positive market sentiment was further supported by economic data. The U.S. Commerce Department reported a 3.2% annualized growth rate for the second quarter, surpassing expectations and highlighting the strength of consumer spending and business investment. Additionally, the Labor Departments report showed a decrease in initial jobless claims, signaling a resilient labor market.
+The Bollywood social scene has been abuzz with the news of Alia Bhatt and Ranbir Kapoor's recent anniversary celebration. The couple, who are also new parents, hosted an intimate gathering with close friends and family, sharing glimpses of their joy on social media. Their daughter, Raha, has already become a favorite among fans, with her adorable photos making frequent appearances online.
 
-Market Outlook
+**3. Upcoming Releases:**
 
-Analysts are optimistic about the market's direction. “Todays earnings and economic data paint a positive picture for the second half of the year,” said Jane Roberts, senior analyst at Capital Insights. “While there are still risks, such as geopolitical tensions and inflation concerns, the current data suggests the economy remains robust.”
+Several high-profile films are set to hit theaters in the coming months. *Dilwale* director Rohit Shetty's latest action-packed venture, *Aag*, promises to deliver explosive entertainment. Starring Ajay Devgn and Kriti Sanon, the film is generating buzz for its grand scale and impressive stunts.
 
-Sector Highlights
+Additionally, *Jab We Met* director Imtiaz Ali is gearing up for the release of his new romantic drama, *Chandni Raatein*. With a stellar cast including Kartik Aaryan and Janhvi Kapoor, the film is expected to be a visual and emotional treat.
 
-Technology stocks were the standout performers, with gains across the semiconductor and software sectors. The energy sector also benefited from rising oil prices, although the healthcare sector lagged due to regulatory challenges.
+**4. Awards and Recognitions:**
 
-As earnings season progresses, investors will be watching closely for results from major firms like Tesla and Alphabet Inc., as well as upcoming economic reports for further guidance on market trends.
+Bollywood's award season is in full swing, and this year's nominations have sparked much discussion. *Pathaan*, starring Shah Rukh Khan and Deepika Padukone, has garnered critical acclaim and is leading the race for several major awards. Meanwhile, rising star Ayushmann Khurrana is being praised for his compelling performance in *Meri Zindagi*, which has positioned him as one of the most versatile actors of his generation.
 
-Conclusion
+**5. Industry Insights:**
 
-Todays market gains reflect a mix of strong corporate earnings and favorable economic indicators, offering a hopeful outlook for the remainder of the year. However, investors remain vigilant for any potential disruptions that could affect market stability.
+As Bollywood evolves, so does its approach to storytelling and production. The rise of digital platforms has led to a surge in web series and online content, with many established actors and directors exploring this new medium. This shift is not only expanding the scope of Bollywood narratives but also providing audiences with fresh and diverse content.
+
+As always, Bollywood remains a dynamic and vibrant industry, with new stories, stars, and surprises around every corner. Stay tuned for more updates as the drama and excitement continue to unfold in India's film capital.
 '''
 
 prompt = (
-            "Write a youtube short script using below article\n\n"
+            "Write a interesting youtube short script using below article. Youtube channel name is Hournews.\n\n"
             f"{text}\n\n"
         )
 
@@ -74,7 +76,7 @@ print(response)
 print('RESPONSE ENDED HERE')
 
 prompt = (
-            "Rate the below youtube short script between 0 and 10 where 10 is rated very good. Reply in a json response {rating: YOURRATING}\n\n"
+            "Rate the below youtube short script between 0 and 10 where 10 is rated very good. Reply in a json response only like {rating: YOURRATING}. Do not write feedback.\n\n"
             f"{response}\n\n"
         )
 response = chat_with_gpt(prompt)
