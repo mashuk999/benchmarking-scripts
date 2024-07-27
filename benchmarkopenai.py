@@ -23,7 +23,7 @@ def chat_with_gpt(prompt):
         # Make a request to the OpenAI API
         response = client.completions.create(
             prompt=prompt,
-            max_tokens=150,
+            max_tokens=1000,
             temperature=0.7,
             model=model        )
         
@@ -64,7 +64,7 @@ As always, Bollywood remains a dynamic and vibrant industry, with new stories, s
 '''
 
 prompt = (
-            "Write a interesting youtube short script using below article. Youtube channel name is Hournews.\n\n"
+            "Summarise the below article in one paragraph\n\n"
             f"{text}\n\n"
         )
 
@@ -76,7 +76,7 @@ print(response)
 print('RESPONSE ENDED HERE')
 
 prompt = (
-            "Rate the below youtube short script between 0 and 10 where 10 is rated very good. Reply in a json response only like {rating: YOURRATING}. Do not write feedback.\n\n"
+            "Write a youtube script using below article\n\n"
             f"{response}\n\n"
         )
 response = chat_with_gpt(prompt)
