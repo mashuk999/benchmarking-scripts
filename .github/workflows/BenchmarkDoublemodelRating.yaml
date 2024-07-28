@@ -129,4 +129,4 @@ jobs:
 
     - name: Running the script
       run: |
-        python benchmarkopenai.py
+        python benchmarkopenaiwithrater.py
