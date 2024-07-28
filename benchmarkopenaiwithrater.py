@@ -25,6 +25,7 @@ def wait_for_ports(host='localhost', ports=(8000, 8080), check_interval=5):
             time.sleep(check_interval)
 
 wait_for_ports()
+time.sleep(200)
 
 # Replace 'your-api-key-here' with your actual OpenAI API key
 openai_api_key_chat = "EMPTY"
