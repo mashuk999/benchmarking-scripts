@@ -102,7 +102,7 @@ print(response)
 print('RESPONSE ENDED HERE')
 
 prompt = (
-            "Do you find below youtube script engaging and correct? Answer in only one word SATISFIED or NOTSATISFIED\n\n"
+            "Rate the below article frim 0 to 10. Do not provide any text just one word answer\n\n"
             f"{response}\n\n"
         )
 response = chat_with_rater(prompt)
