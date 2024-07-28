@@ -27,7 +27,7 @@ jobs:
         mv Meta-Llama-3-8B-Instruct.Q8_0.gguf /tmp/llamarater.gguf
         mv outputformat.json /tmp/outputformat.json
         docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema /models/outputformat.json
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema '{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","properties":{"feedback":{"type":"string"},"rating":{"type":"string","enum":["0","1","2","3","4","5","6","7","8","9","10"]},"mood":{"type":"string","enum":["happy","sad","fearful","surprised","angry","neutral","avoidant","conflicted","grateful","ecstatic","overwhelmed","disappointed","jealous","smug"]}},"required":["feedback","mood","rating"],"additionalProperties":false}'
     - name: Running the script
       run: |
         python benchmarkopenaiwithrater.py
@@ -57,7 +57,7 @@ jobs:
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llama-model.gguf
         mv Meta-Llama-3-8B-Instruct.Q8_0.gguf /tmp/llamarater.gguf
         docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema /models/outputformat.json
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema '{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","properties":{"feedback":{"type":"string"},"rating":{"type":"string","enum":["0","1","2","3","4","5","6","7","8","9","10"]},"mood":{"type":"string","enum":["happy","sad","fearful","surprised","angry","neutral","avoidant","conflicted","grateful","ecstatic","overwhelmed","disappointed","jealous","smug"]}},"required":["feedback","mood","rating"],"additionalProperties":false}'
 
     - name: Running the script
       run: |
@@ -88,7 +88,7 @@ jobs:
         mv Meta-Llama-3-8B-Instruct.Q8_0.gguf /tmp/llamarater.gguf
         mv outputformat.json /tmp/outputformat.json
         docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema /models/outputformat.json
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema '{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","properties":{"feedback":{"type":"string"},"rating":{"type":"string","enum":["0","1","2","3","4","5","6","7","8","9","10"]},"mood":{"type":"string","enum":["happy","sad","fearful","surprised","angry","neutral","avoidant","conflicted","grateful","ecstatic","overwhelmed","disappointed","jealous","smug"]}},"required":["feedback","mood","rating"],"additionalProperties":false}'
 
     - name: Running the script
       run: |
@@ -119,7 +119,7 @@ jobs:
         mv Meta-Llama-3-8B-Instruct.Q8_0.gguf /tmp/llamarater.gguf
         mv outputformat.json /tmp/outputformat.json
         docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema /models/outputformat.json
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema '{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","properties":{"feedback":{"type":"string"},"rating":{"type":"string","enum":["0","1","2","3","4","5","6","7","8","9","10"]},"mood":{"type":"string","enum":["happy","sad","fearful","surprised","angry","neutral","avoidant","conflicted","grateful","ecstatic","overwhelmed","disappointed","jealous","smug"]}},"required":["feedback","mood","rating"],"additionalProperties":false}'
 
     - name: Running the script
       run: |
@@ -150,7 +150,7 @@ jobs:
         mv Meta-Llama-3-8B-Instruct.Q8_0.gguf /tmp/llamarater.gguf
         mv outputformat.json /tmp/outputformat.json
         docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema /models/outputformat.json
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --json-schema '{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","properties":{"feedback":{"type":"string"},"rating":{"type":"string","enum":["0","1","2","3","4","5","6","7","8","9","10"]},"mood":{"type":"string","enum":["happy","sad","fearful","surprised","angry","neutral","avoidant","conflicted","grateful","ecstatic","overwhelmed","disappointed","jealous","smug"]}},"required":["feedback","mood","rating"],"additionalProperties":false}'
 
     - name: Running the script
       run: |
