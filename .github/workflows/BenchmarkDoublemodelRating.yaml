@@ -28,8 +28,6 @@ jobs:
         mv oneword.gbnf /tmp/oneword.gbnf
         docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
         docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file /models/oneword.gbnf
-        docker logs -f --until=3m  main
-        docker logs -f --until=1m rater
     - name: Running the script
       run: |
         python benchmarkopenaiwithrater.py
