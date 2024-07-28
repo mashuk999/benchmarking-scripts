@@ -2,30 +2,57 @@ from openai import OpenAI
 import time
 
 # Replace 'your-api-key-here' with your actual OpenAI API key
-openai_api_key = "EMPTY"
-openai_api_base = "http://localhost:8000/v1"
+openai_api_key_chat = "EMPTY"
+openai_api_base_chat = "http://localhost:8000/v1"
+
+openai_api_key_rater = "EMPTY"
+openai_api_base_rater = "http://localhost:8080/v1"
 
 print('Sleeping for 200s')
 time.sleep(200)
 print('Sleep Ended')
 
-client = OpenAI(
-    # defaults to os.environ.get("OPENAI_API_KEY")
-    api_key=openai_api_key,
-    base_url=openai_api_base,
+chat_client = OpenAI(
+    # defaults to os.environ.get("OPENAI_API_KEY_chat")
+    api_key=openai_api_key_chat,
+    base_url=openai_api_base_chat,
 )
-models = client.models.list()
-model = models.data[0].id
+models_chat = chat_client.models.list()
+model_chat = models_chat.data[0].id
+
+rater_client = OpenAI(
+    # defaults to os.environ.get("OPENAI_API_KEY_chat")
+    api_key=openai_api_key_rater,
+    base_url=openai_api_base_rater,
+)
+models_rater = rater_client.models.list()
+model_rater = models_rater.data[0].id
 
 def chat_with_gpt(prompt):
     try:
         start_time = time.time()
         # Make a request to the OpenAI API
-        response = client.completions.create(
+        response = chat_client.completions.create(
             prompt=prompt,
             max_tokens=1000,
             temperature=0.7,
-            model=model        )
+            model=model_chat        )
+        
+        # Extract and return the response text
+        print("--- %s seconds ---" % (time.time() - start_time))
+        return response.choices[0].text.strip()
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+def chat_with_rater(prompt):
+    try:
+        start_time = time.time()
+        # Make a request to the OpenAI API
+        response = rater_client.completions.create(
+            prompt=prompt,
+            max_tokens=1000,
+            temperature=0.7,
+            model=model_rater        )
         
         # Extract and return the response text
         print("--- %s seconds ---" % (time.time() - start_time))
@@ -79,7 +106,7 @@ prompt = (
             "Do you find below youtube script engaging and correct? Answer in only one word SATISFIED or NOTSATISFIED\n\n"
             f"{response}\n\n"
         )
-response = chat_with_gpt(prompt)
+response = chat_with_rater(prompt)
 print('=======')
 print('RESPONSE STARTED HERE')
 print(response)
