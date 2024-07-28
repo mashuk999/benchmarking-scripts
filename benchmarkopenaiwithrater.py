@@ -62,6 +62,7 @@ def chat_with_gpt(prompt):
         
         # Extract and return the response text
         print("--- %s seconds ---" % (time.time() - start_time))
+        print(response)
         return response.choices[0].text.strip()
     except Exception as e:
         return f"An error occurred: {e}"
