@@ -125,7 +125,7 @@ print(response)
 print('RESPONSE ENDED HERE')
 
 prompt = (
-            "Rate the below article frim 0 to 10 and reply in json {rating: YOUR_RATING}r\n\n"
+            "Rate the below article\n\n"
             f"{response}\n\n"
         )
 response = chat_with_rater(prompt)
