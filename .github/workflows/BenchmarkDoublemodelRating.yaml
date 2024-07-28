@@ -26,7 +26,7 @@ jobs:
         mv Phi-3-mini-4k-instruct-q4.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080
+        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
@@ -50,7 +50,7 @@ jobs:
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080
+        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
@@ -75,7 +75,7 @@ jobs:
         mv Meta-Llama-3-8B-Instruct.Q2_K.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080
+        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
@@ -100,7 +100,7 @@ jobs:
         mv Meta-Llama-3-8B-Instruct.Q4_K_M.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080
+        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
@@ -125,7 +125,7 @@ jobs:
         mv Meta-Llama-3-8B-Instruct.Q8_0.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080
+        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
