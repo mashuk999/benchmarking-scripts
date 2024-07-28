@@ -64,7 +64,7 @@ As always, Bollywood remains a dynamic and vibrant industry, with new stories, s
 '''
 
 prompt = (
-            "Summarise the below article in one paragraph\n\n"
+            "Write a youtube script using below article\n\n"
             f"{text}\n\n"
         )
 
@@ -76,7 +76,7 @@ print(response)
 print('RESPONSE ENDED HERE')
 
 prompt = (
-            "Write a youtube script using below article\n\n"
+            "Do you find below youtube script engaging and correct? Answer in only one word SATISFIED or NOTSATISFIED\n\n"
             f"{response}\n\n"
         )
 response = chat_with_gpt(prompt)
