@@ -47,8 +47,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install openai
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-fp16.gguf
+        wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llama-model.gguf
-        mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
+        mv Phi-3-mini-4k-instruct-q4.gguf /tmp/llamarater.gguf
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
         docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
