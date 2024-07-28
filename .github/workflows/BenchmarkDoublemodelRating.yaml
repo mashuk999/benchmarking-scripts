@@ -25,12 +25,17 @@ jobs:
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-fp16.gguf
         mv Phi-3-mini-4k-instruct-q4.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
-        docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
+        docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
         python benchmarkopenaiwithrater.py
+    - name: Trail Docker Logs
+      run: |
+        docker logs main
+        echo "==========END OF MAIN CONTAINER ==========="
+        docker logs rater
 
   Phi-3-minifp16:
     runs-on: ubuntu-latest
@@ -50,12 +55,17 @@ jobs:
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-q4.gguf /tmp/llamarater.gguf
-        docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
+        docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
         python benchmarkopenaiwithrater.py
+    - name: Trail Docker Logs
+      run: |
+        docker logs main
+        echo "==========END OF MAIN CONTAINER ==========="
+        docker logs rater
 
   Meta-Llama-3-8B-InstructQ2_K:
     runs-on: ubuntu-latest
@@ -75,12 +85,17 @@ jobs:
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-fp16.gguf
         mv Meta-Llama-3-8B-Instruct.Q2_K.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
-        docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
+        docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
         python benchmarkopenaiwithrater.py
+    - name: Trail Docker Logs
+      run: |
+        docker logs main
+        echo "==========END OF MAIN CONTAINER ==========="
+        docker logs rater
 
   Meta-Llama-3-8B-InstructQ4_K_M:
     runs-on: ubuntu-latest
@@ -100,12 +115,17 @@ jobs:
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-fp16.gguf
         mv Meta-Llama-3-8B-Instruct.Q4_K_M.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
-        docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
+        docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
         python benchmarkopenaiwithrater.py
+    - name: Trail Docker Logs
+      run: |
+        docker logs main
+        echo "==========END OF MAIN CONTAINER ==========="
+        docker logs rater
         
   Meta-Llama-3-8B-InstructQ8_0:
     runs-on: ubuntu-latest
@@ -125,9 +145,14 @@ jobs:
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-fp16.gguf
         mv Meta-Llama-3-8B-Instruct.Q8_0.gguf /tmp/llama-model.gguf
         mv Phi-3-mini-4k-instruct-fp16.gguf /tmp/llamarater.gguf
-        docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        docker run -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
+        docker run --name main -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
+        docker run --name rater -d -p 8080:8080 -v /tmp:/models ghcr.io/ggerganov/llama.cpp:server -m /models/llamarater.gguf --host 0.0.0.0 --port 8080 --grammar-file oneword.gbnf
 
     - name: Running the script
       run: |
         python benchmarkopenaiwithrater.py
+    - name: Trail Docker Logs
+      run: |
+        docker logs main
+        echo "==========END OF MAIN CONTAINER ==========="
+        docker logs rater
