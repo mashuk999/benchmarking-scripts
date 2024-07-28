@@ -1,5 +1,30 @@
 from openai import OpenAI
 import time
+import socket
+
+def is_port_accessible(host, port, timeout=5):
+    """Check if a given port on a host is accessible."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(timeout)
+        try:
+            sock.connect((host, port))
+            return True
+        except (socket.timeout, socket.error):
+            return False
+
+def wait_for_ports(host='localhost', ports=(8000, 8080), check_interval=5):
+    """Wait until all specified ports on the host are accessible."""
+    print(f"Waiting for ports {ports} on {host} to be accessible...")
+    while True:
+        all_accessible = all(is_port_accessible(host, port) for port in ports)
+        if all_accessible:
+            print(f"All ports {ports} on {host} are accessible.")
+            return
+        else:
+            print(f"Not all ports {ports} are accessible. Checking again in {check_interval} seconds.")
+            time.sleep(check_interval)
+
+wait_for_ports()
 
 # Replace 'your-api-key-here' with your actual OpenAI API key
 openai_api_key_chat = "EMPTY"
@@ -7,10 +32,6 @@ openai_api_base_chat = "http://localhost:8000/v1"
 
 openai_api_key_rater = "EMPTY"
 openai_api_base_rater = "http://localhost:8080/v1"
-
-print('Sleeping for 200s')
-time.sleep(200)
-print('Sleep Ended')
 
 chat_client = OpenAI(
     # defaults to os.environ.get("OPENAI_API_KEY_chat")
