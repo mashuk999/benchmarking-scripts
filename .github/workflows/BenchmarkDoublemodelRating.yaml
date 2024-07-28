@@ -30,7 +30,7 @@ jobs:
 
     - name: Running the script
       run: |
-        python benchmarkopenai.py
+        python benchmarkopenaiwithrater.py
 
   Phi-3-minifp16:
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
 
     - name: Running the script
       run: |
-        python benchmarkopenai.py
+        python benchmarkopenaiwithrater.py
 
   Meta-Llama-3-8B-InstructQ2_K:
     runs-on: ubuntu-latest
@@ -80,7 +80,7 @@ jobs:
 
     - name: Running the script
       run: |
-        python benchmarkopenai.py
+        python benchmarkopenaiwithrater.py
 
   Meta-Llama-3-8B-InstructQ4_K_M:
     runs-on: ubuntu-latest
@@ -105,7 +105,7 @@ jobs:
 
     - name: Running the script
       run: |
-        python benchmarkopenai.py
+        python benchmarkopenaiwithrater.py
         
   Meta-Llama-3-8B-InstructQ8_0:
     runs-on: ubuntu-latest
