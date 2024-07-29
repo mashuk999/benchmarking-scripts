@@ -24,7 +24,10 @@ jobs:
 
     - name: Running the script
       run: |
-        curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc && sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" && sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
+        curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
+        echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
+        sudo apt update -y
+        sudo apt install ngrok -y
         ngrok config add-authtoken 2jv5iCwMlreHN3T3lxI0GDncMD2_3aF1c44EwFCV6qxKQjeFS
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
         mv Phi-3-mini-4k-instruct-q4.gguf /tmp/llama-model.gguf
