@@ -46,11 +46,14 @@ jobs:
         echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
         sudo apt update -y
         sudo apt install ngrok -y
-        
+
         # Ensure ngrok is configured with the auth token from GitHub secret
         echo "Configuring ngrok with authtoken"
         echo "${{ secrets.NGROK_SECRET }}" | ngrok config add-authtoken
         
+        # Verify that the auth token was added correctly by checking ngrok's config
+        ngrok config check
+
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
         mv Phi-3-mini-4k-instruct-q4.gguf /tmp/llama-model.gguf
         docker pull ghcr.io/abetlen/llama-cpp-python:v0.2.79
