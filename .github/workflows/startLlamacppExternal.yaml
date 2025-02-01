@@ -14,17 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Debugging the NGROK_SECRET
-      run: |
-        echo "Checking if NGROK_SECRET is available"
-        echo "NGROK_SECRET: $NGROK_SECRET"  # This will print the secret value (ensure it's correctly passed)
-        if [ -z "$NGROK_SECRET" ]; then
-          echo "NGROK_SECRET is not set or empty!"  # Print a message if the secret is empty or not passed
-          exit 1  # Exit the workflow if the secret is missing
-        fi
-      env:
-        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step for debugging
-
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -49,7 +38,9 @@ jobs:
 
         # Ensure ngrok is configured with the auth token from GitHub secret
         echo "Configuring ngrok with authtoken"
-        echo "${{ secrets.NGROK_SECRET }}" | ngrok config add-authtoken
+        
+        # Correct command to add the ngrok authtoken
+        ngrok config add-authtoken ${{ secrets.NGROK_SECRET }}
         
         # Verify that the auth token was added correctly by checking ngrok's config
         ngrok config check
@@ -64,7 +55,6 @@ jobs:
       run: |
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
         # Explicitly use the ngrok binary to expose the local server
-        echo "Starting ngrok with token: $NGROK_SECRET"
         sudo nohup ngrok http 8000 > /tmp/ngrok.log 2>&1 &
         # Wait for ngrok to establish the tunnel
         sleep 5
