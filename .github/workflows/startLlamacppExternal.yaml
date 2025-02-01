@@ -14,6 +14,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Debugging the NGROK_SECRET
+      run: |
+        echo "Checking if NGROK_SECRET is available"
+        echo "NGROK_SECRET: $NGROK_SECRET"  # This will print the secret value (ensure it's correctly passed)
+        if [ -z "$NGROK_SECRET" ]; then
+          echo "NGROK_SECRET is not set or empty!"  # Print a message if the secret is empty or not passed
+          exit 1  # Exit the workflow if the secret is missing
+        fi
+      env:
+        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step for debugging
+
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -45,11 +56,6 @@ jobs:
         docker pull ghcr.io/abetlen/llama-cpp-python:v0.2.79
       env:
         NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step
-
-    - name: Debug Environment Variables
-      run: printenv  # This will print all environment variables, including NGROK_SECRET
-      env:
-        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step for debugging
 
     - name: Running Server
       run: |
