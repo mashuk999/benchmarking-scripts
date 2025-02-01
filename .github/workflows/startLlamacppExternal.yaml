@@ -19,11 +19,15 @@ jobs:
       with:
         python-version: "3.10"
         cache: 'pip'
+      env:
+        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install openai
+      env:
+        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step
 
     - name: Getting the files
       run: |
@@ -32,17 +36,19 @@ jobs:
         sudo apt update -y
         sudo apt install ngrok -y
         
-        # Safely fetch the ngrok authtoken from the environment secret
+        # Ensure ngrok is configured with the auth token from GitHub secret
         echo "${{ secrets.NGROK_SECRET }}" | ngrok config add-authtoken
         
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
         mv Phi-3-mini-4k-instruct-q4.gguf /tmp/llama-model.gguf
         docker pull ghcr.io/abetlen/llama-cpp-python:v0.2.79
+      env:
+        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step
 
     - name: Running Server
       run: |
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        ngrok http http://localhost:8000
-      # Ensure ngrok authtoken is available without being exposed in logs
+        # Run ngrok to expose the local server
+        ngrok http 8000  # This tells ngrok to expose port 8000
       env:
-        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}
+        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step
