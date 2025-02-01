@@ -37,6 +37,7 @@ jobs:
         sudo apt install ngrok -y
         
         # Ensure ngrok is configured with the auth token from GitHub secret
+        echo "Configuring ngrok with authtoken"
         echo "${{ secrets.NGROK_SECRET }}" | ngrok config add-authtoken
         
         wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
@@ -45,10 +46,19 @@ jobs:
       env:
         NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step
 
+    - name: Debug Environment Variables
+      run: printenv  # This will print all environment variables, including NGROK_SECRET
+      env:
+        NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step for debugging
+
     - name: Running Server
       run: |
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
-        # Run ngrok to expose the local server
-        ngrok http 8000  # This tells ngrok to expose port 8000
+        # Explicitly use the ngrok binary to expose the local server
+        echo "Starting ngrok with token: $NGROK_SECRET"
+        sudo nohup ngrok http 8000 > /tmp/ngrok.log 2>&1 &
+        # Wait for ngrok to establish the tunnel
+        sleep 5
+        cat /tmp/ngrok.log  # Print ngrok logs to see if there is an error
       env:
         NGROK_SECRET: ${{ secrets.NGROK_SECRET }}  # Pass secret to this step
