@@ -55,7 +55,7 @@ jobs:
       run: |
         docker run -d  -p 8000:8000 -v /tmp:/models -e MODEL=/models/llama-model.gguf ghcr.io/abetlen/llama-cpp-python:v0.2.79
         # Explicitly use the ngrok binary to expose the local server
-        sudo nohup ngrok http 8000 > /tmp/ngrok.log 2>&1 &
+        ngrok http http://localhost:8000
         # Wait for ngrok to establish the tunnel
         sleep 5
         cat /tmp/ngrok.log  # Print ngrok logs to see if there is an error
